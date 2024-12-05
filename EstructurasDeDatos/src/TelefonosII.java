@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class TelefonosII {
-    public static void mostrarTelefono(Map<String, String> mapa, Scanner s) {
+    public static void mostrarTelefono(Map<String, ArrayList<String>> mapa, Scanner s) {
         //Creamos las variables
         String contacto;
         char finalizar;
@@ -25,7 +25,7 @@ public class TelefonosII {
     }
     public static void main(String[] args) {
         //Creamos el mapa
-        Map<String, String> mapa = new HashMap<>();
+        Map<String, ArrayList<String>> mapa = new HashMap<>();
 
         //Abrimos el Scanner
         Scanner s = new Scanner(System.in);
@@ -38,30 +38,30 @@ public class TelefonosII {
         numeros.add("611987654");
 
         //Añadimos el nombre con la lista de números en el mapa
-        mapa.put("Juan", String.valueOf(numeros));
+        mapa.put("Juan", numeros);
 
         //Creamos una nueva lista para que no se solapen los números
-        new ArrayList<>();
+        numeros = new ArrayList<>();
 
         numeros.add("622345678");
         numeros.add("633876543");
-        mapa.put("María", String.valueOf(numeros));
-        new ArrayList<>();
+        mapa.put("María", numeros);
+        numeros = new ArrayList<>();
         numeros.add("622345678");
         numeros.add("633876543");
-        mapa.put("Pedro", String.valueOf(numeros));
+        mapa.put("Pedro", numeros);
         numeros = new ArrayList<>();
         numeros.add("666789012");
         numeros.add("677890123");
-        mapa.put("Ana", String.valueOf(numeros));
+        mapa.put("Ana", numeros);
         numeros = new ArrayList<>();
         numeros.add("688901234");
         numeros.add("699012345");
-        mapa.put("Luis", String.valueOf(numeros));
+        mapa.put("Luis", numeros);
         numeros = new ArrayList<>();
         numeros.add("600345678");
         numeros.add("611456789");
-        mapa.put("Sofía", String.valueOf(numeros));
+        mapa.put("Sofía", numeros);
 
         //Mostramos los teléfonos de los contactos introducidos por el usuario
         mostrarTelefono(mapa, s);
