@@ -9,9 +9,9 @@ public class Frequency {
         return s.nextLine();
     }
 
-    public static void rellenarArrayList(ArrayList<String> palabras, String boletosIntroducidos) {
+    public static void rellenarArrayList(ArrayList<String> palabras, String palabrasIntroducidas) {
         //Separamos las palabras introducidas separadas por comas y los metemos en una array
-        String[] partes = boletosIntroducidos.split(",");
+        String[] partes = palabrasIntroducidas.split(",");
 
         //Recorremos la array "partes" y añadimos todos los elementos a la ArrayList palabras
         for (String parte : partes) {
