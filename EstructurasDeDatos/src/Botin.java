@@ -24,6 +24,31 @@ public class Botin {
         }
     }
 
+    public static void repartirBilletes(ArrayList<Integer> billetes, int participantes, Map<Integer, ArrayList<Integer>> reparticion) {
+        ArrayList<Integer> billetesParticipante; //Creamos la lista que contendrá los billetes de cada uno
+
+        int contador = 0; //Creamos el contador que contendrá la posición actual en la que estamos en la lista de billetes a repartir
+
+        for (int i = 0; i < (billetes.size() + participantes - 1) / participantes; i++) {
+            for (int participante = 0; participante < participantes; participante++) {
+                billetesParticipante = new ArrayList<>(); //Creamos una nueva lista para que no se solapen los billetes de cada participante
+                ArrayList<Integer> billetesObtenidos = reparticion.getOrDefault(participante, new ArrayList<>()); //Obtenemos los billetes que ya ha recibido este participante, si existen
+
+                //Añadimos los billetes ya obtenidos a la nueva lista
+                for (Integer billeteObtenido : billetesObtenidos) {
+                    billetesParticipante.add(billeteObtenido);
+                }
+
+                billetesParticipante.add(billetes.get(contador)); //Añadimos el siguiente billete al participante
+                reparticion.put(participante, billetesParticipante); //Actualizamos la repartición con el nuevo billete asignado
+
+                // Si aún quedan billetes, incrementamos el contador, si no, salimos del bucle
+                if (contador < billetes.size() - 1) contador++;
+                else break;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         //Creamos la ArrayList que contendrá los billetes introducidos
         ArrayList<Integer> billetes = new ArrayList<>();
@@ -43,22 +68,16 @@ public class Botin {
         //Pedimos los billetes
         String billetesIntroducidos = pedirBilletes(s);
 
+        //Cerramos el Scanner
+        s.close();
+
         //Metemos los billetes introducidos en la ArrayList
         rellenarArrayList(billetes, billetesIntroducidos);
 
-        ArrayList<Integer> lista;
+        //Repartimos los billetes a los participantes
+        repartirBilletes(billetes, participantes, reparticion);
 
-        int contador = 0;
-
-        for (int i = 0; i < billetes.size(); i++) {
-            for (int participante = 0; participante < participantes - 1; participante++) {
-                lista = new ArrayList<>();
-                lista.add(billetes.get(contador));
-                contador++;
-                reparticion.put(participante, lista);
-            }
-        }
-
+        //Mostramos el mapa con los billetes repartidos
         System.out.println(reparticion);
     }
 }
