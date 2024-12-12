@@ -8,9 +8,24 @@ public class Anagramas {
         return new String(a);
     }
 
+    public static int pedirMinGroupSize(Scanner s) {
+        System.out.print("Introduce el mínimo número de valores para que salgan impresos: ");
+        return s.nextInt();
+    }
+
     public static void main(String[] args) throws IOException {
+        //Creamos el reader para leer el archivo
         BufferedReader reader = new BufferedReader(new FileReader("spanish-dict.txt"));
+
+        //Creamos el mapa que contendrá los anagramas de cada palabra
         Map<String, ArrayList<String>> anagramas = new HashMap<>();
+
+        //Abrimos el Scanner
+        Scanner s = new Scanner(System.in);
+
+        //Pedimos el mínimo número de valores para imprimir
+        int minGroupSize = pedirMinGroupSize(s);
+
         ArrayList<String> palabrasAnagrama;
         String line;
         while ((line = reader.readLine())!=null) {
@@ -24,8 +39,14 @@ public class Anagramas {
             palabrasAnagrama.add(alphabetize(line));
 
             anagramas.put(alphabetize(line), palabrasAnagrama);
+
+            if (anagramas.get(alphabetize(line)).size() > minGroupSize) {
+                System.out.println(alphabetize(line) + " --> " + anagramas.get(alphabetize(line)) + " --> " + anagramas.get(alphabetize(line)).size());
+            }
         }
-        System.out.println(anagramas);
+
+        //Cerramos el reader y el Scanner
         reader.close();
+        s.close();
     }
 }
