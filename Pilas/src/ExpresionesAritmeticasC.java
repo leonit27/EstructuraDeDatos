@@ -1,7 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class ExpresionesAritmeticasC {
     public static String introducirExpresion(Scanner s) {
