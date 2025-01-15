@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Comparable/Comparable.iml" filepath="$PROJECT_DIR$/Comparable/Comparable.iml" />
       <module fileurl="file://$PROJECT_DIR$/EstructuraDeDatos.iml" filepath="$PROJECT_DIR$/EstructuraDeDatos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examen/Examen.iml" filepath="$PROJECT_DIR$/Examen/Examen.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pilas/Pilas.iml" filepath="$PROJECT_DIR$/Pilas/Pilas.iml" />
       <module fileurl="file://$PROJECT_DIR$/Streams/Streams.iml" filepath="$PROJECT_DIR$/Streams/Streams.iml" />
     </modules>
